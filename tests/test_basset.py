@@ -34,7 +34,7 @@ class BassetTest(unittest.TestCase):
             'static/img/other_img.png': '4',
         }
         client = mock_client.return_value
-        client.build_start.return_value = [ missing_assets, '134-ea', ]
+        client.build_start.return_value = [ '134-ea', missing_assets ]
         #client.upload_snapshot.return_value = {"submitted": True}
 
         basset = Basset('token', 'dir', 'basset_url')

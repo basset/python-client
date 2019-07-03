@@ -3,7 +3,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-
+from urlparse import urljoin
 
 class Client(object):
     def __init__(self, basset_url, token):
@@ -34,7 +34,7 @@ class Client(object):
         }
 
     def build_start(self, data):
-        url = "{}build/start/".format(self.basset_url)
+        url = urljoin(self.basset_url, "/build/start/")
         response = self.session.post(url, json=data)
         response_data = response.json()
         response.raise_for_status()
@@ -44,7 +44,7 @@ class Client(object):
         return self.build_id, assets
 
     def upload_snapshot(self, snapshot, relative_path, sha, content):
-        url = "{}/build/upload/snapshot".format(self.basset_url)
+        url = urljoin(self.basset_url, "/build/upload/snapshot")
 
         widths, title, browsers, selectors, hide_selectors = snapshot
 
@@ -74,7 +74,7 @@ class Client(object):
             "asset": (relative_path, content),
         }
         headers = self.set_headers(relative_path, sha)
-        url = "{}/build/upload/asset".format(self.basset_url)
+        url = urljoin(self.basset_url, "/build/upload/asset")
         response = self.session.post(url, files=files, headers=headers)
         response.raise_for_status()
         return response.json()
@@ -83,7 +83,7 @@ class Client(object):
         data = {
             "buildId": self.build_id
         }
-        url = "{}/build/finish".format(self.basset_url)
+        url = urljoin(self.basset_url, "/build/finish")
         response = self.session.post(url, data=data)
         response.raise_for_status()
         return response.json()

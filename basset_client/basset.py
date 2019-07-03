@@ -40,8 +40,7 @@ class Basset(object):
             "authorDate": author_date,
             "assets": current_assets,
         }
-        assets, _ = self.client.build_start(data)
-
+        _, assets = self.client.build_start(data)
         self.upload_assets(assets)
 
     def build_finish(self):
