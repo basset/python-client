@@ -1,6 +1,6 @@
 # basset-python-client
 
-> Node.js client for submitting snapshots to basset
+> Python client for submitting snapshots to basset
 
 ## Documentation
 
