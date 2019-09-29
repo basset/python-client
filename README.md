@@ -4,7 +4,7 @@
 
 ## Documentation
 
-Check out [basset.io](https://basset.io/docs) for instructions on usage
+Check out [basset.io](https://basset.io/docs/python-client) for instructions on usage
 
 ## Install from pip
 
