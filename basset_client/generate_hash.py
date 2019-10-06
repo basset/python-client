@@ -6,7 +6,7 @@ import hashlib
 def generate_file_hash(filename):
     hash = hashlib.sha1()
     memory_view = memoryview(bytearray(128 * 1024))
-    with open(filename, 'rb', buffering=0) as file:
+    with open(filename, 'rb', buffering=0) as f:
         for n in iter(lambda: f.readinto(memory_view), 0):
             hash.update(memory_view[:n])
     return hash.hexdigest()

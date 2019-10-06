@@ -1,6 +1,6 @@
 import unittest
 
-from mock import patch, MagicMock
+from mock import MagicMock
 
 from basset_client.client import Client
 

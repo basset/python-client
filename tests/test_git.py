@@ -1,6 +1,6 @@
 import unittest
 
-from mock import patch, MagicMock
+from mock import patch
 
 from basset_client.git import get_git_info, parse_branch, parse_commit_message, parse_commit_info
 
@@ -20,7 +20,7 @@ class GitTest(unittest.TestCase):
         process.returncode = -1
         process.communicate.return_value = [None, 'oh snap']
         with self.assertRaises(AssertionError) as err:
-            branch = parse_branch()
+            _branch = parse_branch()
             self.assertEqual(err.message, "oh snap")
 
     @patch('basset_client.git.subprocess.Popen')

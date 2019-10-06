@@ -43,7 +43,7 @@ class Client(object):
         assets = response_data.get('assets', [])
         return self.build_id, assets
 
-    def upload_snapshot(self, snapshot, relative_path, sha, content):
+    def upload_snapshot(self, snapshot, _relative_path, sha, content):
         url = urljoin(self.basset_url, "/build/upload/snapshot")
 
         widths, title, browsers, selectors, hide_selectors = snapshot

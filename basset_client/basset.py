@@ -5,7 +5,7 @@ from posixpath import join
 from .assets import get_assets
 from .client import Client
 from .git import get_git_info
-from .generate_hash import generate_file_hash, generate_hash
+from .generate_hash import generate_hash
 
 
 class Basset(object):

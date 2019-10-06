@@ -1,6 +1,6 @@
 import unittest
 
-from mock import patch, MagicMock
+from mock import patch
 
 from basset_client.assets import get_assets, ignore_file, walk_assets
 
